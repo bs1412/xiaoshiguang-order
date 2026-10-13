@@ -1,0 +1,28 @@
+<view class="page" wx:if="{{order}}">
+  <view class="status-card">
+    <view class="status-icon">✅</view>
+    <view class="status-text">{{order.status}}</view>
+    <view class="status-time">{{order.createTime}}</view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">商品明细</view>
+    <view class="detail-item" wx:for="{{order.items}}" wx:key="index">
+      <text>{{item.emoji}} {{item.name}} × {{item.count}}</text>
+      <text>¥{{item.price * item.count}}</text>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="detail-row"><text>订单号</text><text>{{order.id}}</text></view>
+    <view class="detail-row"><text>支付方式</text><text>{{order.method}}</text></view>
+    <view class="detail-row total-row">
+      <text>实付金额</text>
+      <text class="total-price">¥{{order.total}}</text>
+    </view>
+  </view>
+
+  <button class="again-btn" bindtap="goHome">再来一单</button>
+</view>
+
+<view wx:else class="not-found">订单不存在</view>
