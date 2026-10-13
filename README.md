@@ -1,2 +1,51 @@
-# xiaoshiguang-order
-A food-ordering WeChat mini-program (demo)
+# 小食光点餐 🍽️
+
+一个用**微信小程序原生框架**实现的模拟点餐应用，包含完整的「点餐 → 加购 → 结算 → 支付 → 订单」流程。
+
+> 课程练手项目，支付环节为模拟实现，用于演示小程序开发能力。
+
+## ✨ 功能
+
+- 菜品分类浏览（全部 / 招牌菜 / 主食 / 饮品 / 甜点）
+- 加入购物车，购物车数量角标实时更新
+- 购物车管理（增减数量、合计金额）
+- 模拟支付（微信支付 / 余额支付二选一）
+- 生成订单并保存历史订单，支持查看订单详情
+
+## 🛠️ 技术栈
+
+- 微信小程序原生框架（WXML + WXSS + JavaScript）
+- `wx.setStorageSync` 本地存储（购物车与订单）
+- 自定义 TabBar、`scroll-view` 横向分类栏
+
+## 📂 目录结构
+
+```
+小食光点餐
+├── app.js / app.json / app.wxss      # 全局逻辑、配置与样式
+├── pages
+│   ├── index          # 点餐首页（分类 + 菜品列表）
+│   ├── cart           # 购物车
+│   ├── pay            # 结算支付
+│   ├── orders         # 历史订单
+│   └── orderDetail    # 订单详情
+├── utils
+│   ├── dishes.js      # 菜品数据
+│   └── store.js       # 购物车/订单存储封装
+└── project.config.json
+```
+
+## 🚀 如何运行
+
+1. 下载并安装 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
+2. 打开工具 →「导入项目」→ 选择本目录
+3. AppID 使用测试号即可（项目已配置为 `touristappid`）
+4. 点击「编译」即可在模拟器中运行
+
+## 📝 说明
+
+支付环节为**模拟支付**（前端计时器 + 本地订单）。若要接入真实微信支付，需要：注册微信支付商户号、后端调用「统一下单」接口、前端调用 `wx.requestPayment`。
+
+## 📷 截图
+
+（截图待补充）
